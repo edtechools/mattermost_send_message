@@ -1,2 +1,2 @@
-dify_plugin>=0.1.0,<0.2.0
-mattermostautodriver~=2.3.0
+dify_plugin>=0.4.0,<0.7.0
+mattermostautodriver~=11.1.1

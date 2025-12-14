@@ -72,6 +72,20 @@ parameters:
       pt_BR: Tipo de mensagem
     llm_description: TMessage type
     form: form
+  - name: root_id
+    type: string
+    label:
+      en_US: Root ID of the message to reply to(leave empty for channel message)
+      zh_Hans: 回复消息的root_id（留空则为频道内的消息）
+      ja_Jp: Root ID of the message to reply to(leave empty for channel message)
+      pt_BR: Root ID of the message to reply to(leave empty for channel message)
+    human_description:
+      en_US: Root ID of the message to reply to(leave empty for channel message)
+      zh_Hans: 回复消息的root_id（留空则为频道内的消息）
+      ja_Jp: Root ID of the message to reply to(leave empty for channel message)
+      pt_BR: Root ID of the message to reply to(leave empty for channel message)
+    llm_description: Root ID of the message to reply to(leave empty for channel message)
+    form: form
   - name: user_id
     type: string
     label:

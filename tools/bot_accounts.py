@@ -14,6 +14,7 @@ class BotAccounts(Tool):
         mattermost_port = tool_parameters["mattermost_port"]
         bot_access_token = tool_parameters["bot_access_token"]
         channel_id = tool_parameters["channel_id"]
+        root_id = tool_parameters["root_id"]
         user_id = tool_parameters["user_id"]
         message = tool_parameters["message"]
         driver = Driver(
@@ -25,7 +26,14 @@ class BotAccounts(Tool):
         )
         driver.login()
         if message_type == "normal":
-            mattermost_reply = {"channel_id": channel_id, "message": message}
+            if root_id:
+                mattermost_reply = {
+                    "channel_id": channel_id,
+                    "message": message,
+                    "root_id": root_id,
+                }
+            else:
+                mattermost_reply = {"channel_id": channel_id, "message": message}
             driver.posts.create_post(mattermost_reply)
         else:
             mattermost_reply = {
@@ -33,4 +41,5 @@ class BotAccounts(Tool):
                 "post": {"channel_id": channel_id, "message": message},
             }
             driver.posts.create_post_ephemeral(mattermost_reply)
+        driver.logout()
         yield self.create_text_message(message)
